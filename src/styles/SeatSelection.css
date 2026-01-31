@@ -1,0 +1,326 @@
+.seat-selection {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 24px 120px;
+  background: var(--bg-light);
+  min-height: calc(100vh - 70px);
+}
+
+.seat-selection-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 32px;
+  background: var(--gradient-hero);
+  border-radius: var(--radius-xl);
+  color: white;
+  box-shadow: var(--shadow-colored-lg);
+}
+
+.seat-selection-header h2 {
+  font-size: 36px;
+  margin-bottom: 12px;
+  font-family: "Outfit", sans-serif;
+  font-weight: 900;
+}
+
+.seat-legend {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 40px;
+  padding: 24px;
+  background: white;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+  flex-wrap: wrap;
+  border: 2px solid var(--border-light);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.legend-item span {
+  font-weight: 700;
+  color: var(--text-dark);
+  font-size: 14px;
+}
+
+.seat-demo {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--border-color);
+  transition: all var(--transition-base);
+}
+
+.seat-demo.available {
+  background: white;
+  border-color: var(--primary-color);
+}
+
+.seat-demo.selected {
+  background: var(--gradient-primary);
+  border-color: var(--primary-dark);
+}
+
+.seat-demo.booked {
+  background: var(--bg-gray);
+  border-color: var(--text-lighter);
+}
+
+.seat-layout-container {
+  background: white;
+  padding: 44px;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  margin-bottom: 32px;
+  border: 2px solid var(--border-light);
+}
+
+.driver-section {
+  background: var(--gradient-secondary);
+  padding: 24px;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 48px;
+  box-shadow: 0 8px 24px rgba(6, 182, 212, 0.4);
+}
+
+.steering-wheel {
+  filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.3));
+  color: white;
+}
+
+.seats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 16px;
+  max-width: 400px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.aisle {
+  width: 36px;
+}
+
+.seat {
+  width: 75px;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 3px solid var(--primary-color);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  background: white;
+  padding: 10px;
+  position: relative;
+}
+
+.seat-icon {
+  color: var(--primary-color);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.seat-info {
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text-dark);
+}
+
+.seat-price {
+  color: var(--primary-color);
+  font-weight: 800;
+}
+
+.seat-status {
+  color: var(--text-light);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.seat:hover:not(.booked) {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: var(--shadow-colored);
+  border-color: var(--primary-dark);
+}
+
+.seat.selected {
+  background: var(--gradient-primary);
+  border-color: var(--primary-dark);
+  transform: scale(1.08);
+  box-shadow: var(--shadow-colored-lg);
+}
+
+.seat.selected .seat-icon {
+  color: white;
+}
+
+.seat.selected .seat-price {
+  color: white;
+  font-weight: 900;
+}
+
+.seat.selected .seat-info {
+  color: white;
+}
+
+.seat.booked {
+  background: var(--bg-gray);
+  border-color: var(--border-dark);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.seat.booked .seat-icon {
+  color: var(--text-lighter);
+}
+
+.seat.booked .seat-price {
+  color: var(--text-lighter);
+}
+
+.seat.booked:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Sleeper Bed Styling */
+.seat.sleeper-bed {
+  background: white;
+  border-color: var(--secondary-color);
+  width: 85px;
+  height: 80px;
+}
+
+.seat.sleeper-bed .seat-icon {
+  color: var(--secondary-color);
+}
+
+.seat.sleeper-bed .seat-price {
+  color: var(--secondary-color);
+}
+
+.seat.sleeper-bed:hover:not(.booked) {
+  border-color: var(--secondary-dark);
+  box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+}
+
+.seat.sleeper-bed.selected {
+  background: var(--gradient-secondary);
+  border-color: var(--secondary-dark);
+  box-shadow: 0 8px 28px rgba(6, 182, 212, 0.5);
+}
+
+.seat.sleeper-bed.selected .seat-icon {
+  color: white;
+}
+
+.seat.sleeper-bed.selected .seat-price {
+  color: white;
+}
+
+.seat.sleeper-bed.booked {
+  background: var(--bg-gray);
+  border-color: var(--border-dark);
+}
+
+.seat.sleeper-bed.booked .seat-icon {
+  color: var(--text-lighter);
+}
+
+.booking-summary {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.15);
+  padding: 24px;
+  z-index: 100;
+  border-top: 2px solid var(--glass-border);
+}
+
+.summary-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.selected-info h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  font-weight: 800;
+  color: var(--text-dark);
+  font-family: "Outfit", sans-serif;
+}
+
+.selected-info p {
+  color: var(--primary-color);
+  font-size: 24px;
+  font-weight: 900;
+  font-family: "Outfit", sans-serif;
+}
+
+@media (max-width: 768px) {
+  .summary-content {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .seats-grid {
+    gap: 12px;
+    max-width: 340px;
+  }
+
+  .seat {
+    width: 65px;
+    height: 80px;
+  }
+
+  .seat-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .seat-info {
+    font-size: 11px;
+  }
+
+  .driver-section {
+    width: 70px;
+    height: 70px;
+    padding: 18px;
+  }
+
+  .steering-wheel {
+    width: 32px;
+    height: 32px;
+  }
+
+  .aisle {
+    width: 24px;
+  }
+
+  .seat.sleeper-bed {
+    width: 75px;
+    height: 70px;
+  }
+}

@@ -1,0 +1,116 @@
+.seat-layout-admin-page {
+  padding: 40px 24px;
+  background: var(--bg-light);
+  min-height: calc(100vh - 70px);
+}
+
+.layout-editor {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.layout-editor-header {
+  background: var(--gradient-secondary);
+  padding: 40px;
+  border-radius: var(--radius-xl);
+  color: white;
+  margin-bottom: 40px;
+  box-shadow: 0 12px 40px rgba(6, 182, 212, 0.4);
+}
+
+.layout-editor-header h1 {
+  font-size: 42px;
+  font-weight: 900;
+  margin-bottom: 8px;
+  font-family: "Outfit", sans-serif;
+}
+
+.layout-editor-header p {
+  font-size: 16px;
+  opacity: 0.95;
+  font-weight: 600;
+}
+
+.layout-editor-content {
+  background: white;
+  padding: 40px;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  border: 2px solid var(--border-light);
+}
+
+.layout-preview {
+  background: var(--bg-light);
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  margin: 28px 0;
+  border: 2px solid var(--border-color);
+}
+
+.layout-controls {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 2px solid var(--border-light);
+  flex-wrap: wrap;
+}
+
+.seat-type-selector {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.seat-type-option {
+  padding: 16px;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  font-weight: 700;
+}
+
+.seat-type-option:hover {
+  background: var(--gradient-secondary);
+  color: white;
+  border-color: var(--secondary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(6, 182, 212, 0.3);
+}
+
+.seat-type-option.active {
+  background: var(--gradient-secondary);
+  color: white;
+  border-color: var(--secondary-dark);
+  box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .seat-layout-admin-page {
+    padding: 24px 16px;
+  }
+
+  .layout-editor-header {
+    padding: 32px 24px;
+  }
+
+  .layout-editor-header h1 {
+    font-size: 32px;
+  }
+
+  .layout-editor-content {
+    padding: 28px 20px;
+  }
+
+  .layout-controls {
+    flex-direction: column;
+  }
+
+  .layout-controls .btn {
+    width: 100%;
+  }
+}

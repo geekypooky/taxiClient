@@ -1,0 +1,144 @@
+.navbar {
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 75px;
+}
+
+.navbar-brand {
+  font-size: 26px;
+  font-weight: 800;
+  font-family: "Outfit", sans-serif;
+  color: white;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all var(--transition-base);
+  position: relative;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateX(-50%);
+  transition: width var(--transition-base);
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.nav-link:hover::after {
+  width: 80%;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-name-link {
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.user-name-link:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: white;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .navbar-container {
+    height: 65px;
+    padding: 0 16px;
+  }
+
+  .navbar-menu {
+    gap: 12px;
+  }
+
+  .navbar-brand {
+    font-size: 22px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
+  .user-name-link {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-brand {
+    font-size: 20px;
+  }
+
+  .navbar-menu {
+    gap: 8px;
+  }
+
+  .nav-link {
+    padding: 4px 8px;
+    font-size: 13px;
+  }
+}

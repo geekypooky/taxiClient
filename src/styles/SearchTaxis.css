@@ -1,0 +1,721 @@
+.search-buses {
+  min-height: calc(100vh - 70px);
+  background: var(--bg-light);
+}
+
+/* Search Header */
+.search-header {
+  background: var(--gradient-hero);
+  padding: 40px 20px;
+  color: white;
+  box-shadow: var(--shadow-lg);
+}
+
+.search-header h2 {
+  font-family: "Outfit", sans-serif;
+  font-size: 40px;
+  font-weight: 900;
+  margin-bottom: 8px;
+  text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.search-header p {
+  font-size: 16px;
+  opacity: 0.95;
+  font-weight: 600;
+}
+
+/* Search Content */
+.search-content {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 32px;
+  padding: 40px 20px;
+  align-items: start;
+}
+
+/* Filters Sidebar */
+.filters-sidebar {
+  background: white;
+  padding: 28px;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 100px;
+  border: 2px solid var(--border-light);
+  transition: all var(--transition-base);
+}
+
+.filters-sidebar:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.filters-sidebar h3 {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 28px;
+  color: var(--text-dark);
+  font-family: "Outfit", sans-serif;
+  padding-bottom: 16px;
+  border-bottom: 3px solid var(--primary-color);
+}
+
+.filter-section {
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.filter-section:last-child {
+  border-bottom: none;
+}
+
+.filter-section h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--text-dark);
+  font-family: "Outfit", sans-serif;
+}
+
+.filter-checkbox,
+.filter-radio {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  cursor: pointer;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-base);
+}
+
+.filter-checkbox:hover,
+.filter-radio:hover {
+  background: var(--bg-light);
+}
+
+.filter-checkbox input,
+.filter-radio input {
+  margin-right: 10px;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary-color);
+}
+
+.filter-checkbox span,
+.filter-radio span {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-medium);
+}
+
+.price-inputs {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.price-inputs input {
+  width: 80px;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.price-inputs span {
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+.price-slider {
+  width: 100%;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--bg-gray);
+  outline: none;
+  margin-bottom: 12px;
+  cursor: pointer;
+  accent-color: var(--primary-color);
+}
+
+.price-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-medium);
+}
+
+.rating-select {
+  width: 100%;
+  padding: 12px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* Buses Section */
+.buses-section {
+  flex: 1;
+}
+
+.sort-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  padding: 20px 24px;
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  border: 2px solid var(--border-light);
+}
+
+.sort-controls span {
+  font-weight: 700;
+  color: var(--text-dark);
+  font-size: 15px;
+}
+
+.sort-select {
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  min-width: 200px;
+}
+
+.results-count {
+  color: var(--primary-color);
+  font-weight: 800;
+  font-size: 15px;
+}
+
+/* Bus Card */
+.buses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.bus-card {
+  background: white;
+  padding: 32px;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+  transition: all var(--transition-base);
+  border: 2px solid transparent;
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr auto;
+  gap: 28px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.bus-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--gradient-primary);
+  transform: scaleY(0);
+  transition: transform 0.4s ease;
+}
+
+.bus-card:hover::before {
+  transform: scaleY(1);
+}
+
+.bus-card:hover {
+  transform: translateX(8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--primary-lighter);
+}
+
+.bus-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bus-name-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.bus-name-section h3 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 0;
+  font-family: "Outfit", sans-serif;
+}
+
+.bus-rating-badge {
+  background: var(--gradient-accent);
+  color: white;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-weight: 800;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 4px 15px rgba(20, 184, 166, 0.4);
+}
+
+.review-text {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.bus-type {
+  background: var(--gradient-secondary);
+  color: white;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-block;
+  width: fit-content;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+}
+
+.amenities {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.amenity {
+  background: var(--bg-light);
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  color: var(--text-dark);
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-base);
+}
+
+.amenity:hover {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.offer-badge {
+  background: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
+  color: white;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: 800;
+  width: fit-content;
+  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
+}
+
+/* Bus Timings */
+.bus-timings {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.timing {
+  text-align: center;
+}
+
+.time {
+  display: block;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+  font-family: "Outfit", sans-serif;
+}
+
+.location {
+  display: block;
+  font-size: 13px;
+  color: var(--text-medium);
+  font-weight: 600;
+}
+
+.duration {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.arrow {
+  font-size: 24px;
+  color: var(--primary-color);
+  margin: 8px 0;
+}
+
+/* Bus Details Pricing */
+.bus-details {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.seats-available {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.seats-count {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--primary-color);
+  font-family: "Outfit", sans-serif;
+}
+
+.seats-label {
+  font-size: 12px;
+  color: var(--text-medium);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.price-label {
+  font-size: 11px;
+  color: var(--text-light);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.price-amount {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--text-dark);
+  font-family: "Outfit", sans-serif;
+}
+
+/* Bus Action Button */
+.bus-action {
+  display: flex;
+  align-items: center;
+}
+
+.bus-action .btn {
+  padding: 16px 28px;
+  font-size: 15px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* No Results */
+.no-results {
+  text-align: center;
+  padding: 80px 40px;
+  background: white;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+}
+
+.no-results p {
+  font-size: 18px;
+  color: var(--text-medium);
+  margin: 12px 0;
+  font-weight: 600;
+}
+
+.no-results p:first-child {
+  font-size: 22px;
+  color: var(--text-dark);
+  font-weight: 800;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .search-content {
+    grid-template-columns: 1fr;
+  }
+
+  .filters-sidebar {
+    position: static;
+  }
+
+  .bus-card {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .bus-timings {
+    justify-content: center;
+  }
+
+  .bus-action {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-header h2 {
+    font-size: 32px;
+  }
+
+  .sort-controls {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .sort-select {
+    width: 100%;
+  }
+
+  .bus-card {
+    padding: 24px;
+  }
+}
+
+/* Passenger Count Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background: white;
+  max-width: 500px;
+  width: 100%;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  animation: slideUp 0.3s ease;
+  overflow: hidden;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-content h2 {
+  font-family: "Outfit", sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-dark);
+  padding: 24px 28px;
+  margin: 0;
+  border-bottom: 2px solid var(--border-light);
+  background: var(--bg-light);
+}
+
+.modal-body {
+  padding: 28px;
+}
+
+.taxi-info {
+  background: var(--bg-light);
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  margin-bottom: 28px;
+  border: 2px solid var(--border-light);
+}
+
+.taxi-info h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 0 0 8px 0;
+  font-family: "Outfit", sans-serif;
+}
+
+.taxi-info .taxi-type {
+  background: var(--gradient-secondary);
+  color: white;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.taxi-info .capacity-info {
+  font-size: 14px;
+  color: var(--text-medium);
+  margin: 0;
+  font-weight: 600;
+}
+
+.taxi-info .capacity-info strong {
+  color: var(--primary-color);
+}
+
+.passenger-count-selector {
+  margin-bottom: 24px;
+}
+
+.passenger-count-selector label {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+}
+
+.count-input-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+}
+
+.count-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  font-size: 24px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
+}
+
+.count-btn:hover:not(:disabled) {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-md);
+}
+
+.count-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.count-btn:disabled {
+  background: var(--bg-gray);
+  color: var(--text-light);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.passenger-input {
+  width: 100px;
+  height: 48px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-dark);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-family: "Outfit", sans-serif;
+}
+
+.passenger-input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.price-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--primary-lighter);
+}
+
+.price-info span {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.price-info strong {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--primary-color);
+  font-family: "Outfit", sans-serif;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  padding: 20px 28px;
+  background: var(--bg-light);
+  border-top: 2px solid var(--border-light);
+}
+
+.modal-actions .btn {
+  flex: 1;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    max-width: 100%;
+    margin: 0;
+    border-radius: var(--radius-lg);
+  }
+  
+  .count-input-group {
+    gap: 12px;
+  }
+  
+  .count-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  
+  .passenger-input {
+    width: 80px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
+

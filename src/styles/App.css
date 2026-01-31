@@ -1,0 +1,92 @@
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-content {
+  flex: 1;
+}
+
+/* Loading States */
+.page-loader {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-light);
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 5px solid var(--border-light);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Smooth Page Transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all var(--transition-base);
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+/* Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+/* Selection */
+::selection {
+  background: var(--primary-light);
+  color: white;
+}
+
+::-moz-selection {
+  background: var(--primary-light);
+  color: white;
+}
